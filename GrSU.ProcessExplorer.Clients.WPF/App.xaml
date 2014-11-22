@@ -1,0 +1,14 @@
+<Application 
+    x:Class="GrSU.ProcessExplorer.Clients.WPF.App" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    Startup="StartupHandler"
+    StartupUri="Shell.xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    d1p1:Ignorable="d" 
+    xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DispatcherUnhandledException="ApplicationDispatcherUnhandledException">
+    <Application.Resources>
+        <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:GrSU.ProcessExplorer.Clients.WPF.ViewModel" />        
+    </Application.Resources>
+</Application>

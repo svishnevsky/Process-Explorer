@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrSU.ProcessExplorer", "GrSU.ProcessExplorer\GrSU.ProcessExplorer.csproj", "{9C9F9852-2B66-4FF1-926D-71DB79448CA8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A8AFF5A4-A828-4AEC-BE8C-1DB9B41BA45E}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrSU.ProcessExplorer.Core", "GrSU.ProcessExplorer.Core\GrSU.ProcessExplorer.Core.csproj", "{447EC2F2-74DC-4320-87D5-9A0C8A2B6CA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrSU.ProcessExplorer.Core.Test", "GrSU.ProcessExplorer.Core.Test\GrSU.ProcessExplorer.Core.Test.csproj", "{E07EFB0E-1122-46A1-BC93-BFDE01E5AAEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrSU.ProcessExplorer.Clients.WPF", "GrSU.ProcessExplorer.Clients.WPF\GrSU.ProcessExplorer.Clients.WPF.csproj", "{4E9B1C32-9ADD-49C1-B773-9299B303BD25}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://vishnevsky.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = GrSU.ProcessExplorer.Clients.WPF\\GrSU.ProcessExplorer.Clients.WPF.csproj
+		SccProjectName1 = GrSU.ProcessExplorer.Clients.WPF
+		SccLocalPath1 = GrSU.ProcessExplorer.Clients.WPF
+		SccProjectUniqueName2 = GrSU.ProcessExplorer.Core.Test\\GrSU.ProcessExplorer.Core.Test.csproj
+		SccProjectName2 = GrSU.ProcessExplorer.Core.Test
+		SccLocalPath2 = GrSU.ProcessExplorer.Core.Test
+		SccProjectUniqueName3 = GrSU.ProcessExplorer.Core\\GrSU.ProcessExplorer.Core.csproj
+		SccProjectName3 = GrSU.ProcessExplorer.Core
+		SccLocalPath3 = GrSU.ProcessExplorer.Core
+		SccProjectUniqueName4 = GrSU.ProcessExplorer\\GrSU.ProcessExplorer.csproj
+		SccProjectName4 = GrSU.ProcessExplorer
+		SccLocalPath4 = GrSU.ProcessExplorer
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C9F9852-2B66-4FF1-926D-71DB79448CA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C9F9852-2B66-4FF1-926D-71DB79448CA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C9F9852-2B66-4FF1-926D-71DB79448CA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C9F9852-2B66-4FF1-926D-71DB79448CA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{447EC2F2-74DC-4320-87D5-9A0C8A2B6CA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{447EC2F2-74DC-4320-87D5-9A0C8A2B6CA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{447EC2F2-74DC-4320-87D5-9A0C8A2B6CA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{447EC2F2-74DC-4320-87D5-9A0C8A2B6CA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E07EFB0E-1122-46A1-BC93-BFDE01E5AAEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E07EFB0E-1122-46A1-BC93-BFDE01E5AAEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E07EFB0E-1122-46A1-BC93-BFDE01E5AAEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E07EFB0E-1122-46A1-BC93-BFDE01E5AAEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E9B1C32-9ADD-49C1-B773-9299B303BD25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E9B1C32-9ADD-49C1-B773-9299B303BD25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E9B1C32-9ADD-49C1-B773-9299B303BD25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E9B1C32-9ADD-49C1-B773-9299B303BD25}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
