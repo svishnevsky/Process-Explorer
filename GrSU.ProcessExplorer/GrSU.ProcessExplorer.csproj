@@ -44,7 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IProcessManager.cs" />
+    <Compile Include="Interfaces\ProcessStopEventArgs.cs" />
     <Compile Include="Model\Process.cs" />
+    <Compile Include="Interfaces\ProcessStartEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

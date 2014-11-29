@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Native\Kernel32\ProcessHandlerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WMI\ProcessEventManagerTests.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -12,12 +12,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Windows;
+using GrSU.ProcessExplorer.Clients.WPF.Helpers;
 using GrSU.ProcessExplorer.Clients.WPF.ViewModel.Common;
 
 namespace GrSU.ProcessExplorer.Clients.WPF.ViewModel
 {
     public class ProcessListViewModel : BaseViewModel
     {
+        private readonly Dictionary<StartedProcessAction, Action<ProcessExplorer.Model.Process>> StartedProcessActionDict;
+
         private IProcessManager processManager;
 
         public ObservableCollection<ProcessListItem> ProcessList { get; set; }
@@ -27,6 +30,18 @@ namespace GrSU.ProcessExplorer.Clients.WPF.ViewModel
             this.processManager = processManager;
             this.ProcessList = new ObservableCollection<ProcessListItem>();
             MessengerInstance.Register<LoadProcessListMessage>(this, OnLoadProcessList);
+            MessengerInstance.Register<ProgramClosingMessage>(this, OnProgramClosing);
+
+            this.StartedProcessActionDict.Add(StartedProcessAction.KeepExecute, this.AddProcess);
+            this.StartedProcessActionDict.Add(StartedProcessAction.Kill, this.KillProcess);
+        }
+
+        private void OnProgramClosing(ProgramClosingMessage msg)
+        {
+            if (this.processManager != null)
+            {
+                this.processManager.Dispose();
+            }
         }
 
         private void OnLoadProcessList(LoadProcessListMessage msg)
@@ -36,6 +51,8 @@ namespace GrSU.ProcessExplorer.Clients.WPF.ViewModel
                 worker.DoWork += (sender, args) =>
                     {
                         base.MessengerInstance.Send(new StartWorkMessage());
+                        this.processManager.ProcessStart += ProcessStart;
+                        this.processManager.ProcessStop += ProcessStop;
                         var processList = this.processManager
                             .GetProcesses()
                             .Select(item => item.Map<ProcessListItem>());
@@ -56,6 +73,50 @@ namespace GrSU.ProcessExplorer.Clients.WPF.ViewModel
 
                 worker.RunWorkerAsync(msg);
             }
+        }
+
+        private void ProcessStart(object sender, ProcessStartEventArgs e)
+        {
+            base.Invoke(() =>
+                {
+                    base.MessengerInstance.Send(new ProcessStartMessage(e.Process, (process, action) => {
+                        if (!this.StartedProcessActionDict.ContainsKey(action))
+                        {
+                            return;
+                        }
+
+                        this.StartedProcessActionDict[action](process);
+                    }));
+                });
+        }
+
+        private void AddProcess(ProcessExplorer.Model.Process process)
+        {
+            this.ProcessList.Add(process.Map<ProcessListItem>());
+        }
+
+        private void KillProcess(ProcessExplorer.Model.Process process)
+        {
+            this.processManager.KillProcess(process.Id);
+        }
+
+        private void ProcessStop(object sender, ProcessStopEventArgs e)
+        {
+            if (e == null || e.ProcessId == 0)
+            {
+                return;
+            }
+
+            var processItem = this.ProcessList.FirstOrDefault(item => item.Id == e.ProcessId);
+            if (processItem == null)
+            {
+                return;
+            }
+
+            base.Invoke(() =>
+                {
+                    this.ProcessList.Remove(processItem);
+                });
         }
     }
 }

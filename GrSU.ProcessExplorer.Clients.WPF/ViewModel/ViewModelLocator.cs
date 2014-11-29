@@ -48,6 +48,7 @@ namespace GrSU.ProcessExplorer.Clients.WPF.ViewModel
             SimpleIoc.Default.Register<ShellViewModel>();
             SimpleIoc.Default.Register<ProcessListViewModel>();
             SimpleIoc.Default.Register<ActivityInfoViewModel>();
+            SimpleIoc.Default.Register<ProcessStartDialogViewModel>();
         }
 
         public ShellViewModel Shell
@@ -71,6 +72,14 @@ namespace GrSU.ProcessExplorer.Clients.WPF.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<ActivityInfoViewModel>();
+            }
+        }
+
+        public ProcessStartDialogViewModel ProcessStartDialog
+        {
+            get 
+            { 
+                return ServiceLocator.Current.GetInstance<ProcessStartDialogViewModel>(); 
             }
         }
 

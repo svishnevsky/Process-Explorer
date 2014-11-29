@@ -84,9 +84,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters\LastColumnWidthConverter.cs" />
+    <Compile Include="DialogManager.cs" />
+    <Compile Include="Helpers\DispatcherHelpers.cs" />
     <Compile Include="Mapping\MappingExtensions.cs" />
     <Compile Include="Messages\CompleteWorkMessage.cs" />
     <Compile Include="Messages\LoadProcessListMessage.cs" />
+    <Compile Include="Messages\ProcessStartMessage.cs" />
+    <Compile Include="Messages\ProgramClosingMessage.cs" />
+    <Compile Include="Messages\StartedProcessAction.cs" />
     <Compile Include="Messages\StartWorkMessage.cs" />
     <Compile Include="Model\ProcessList\ProcessListItem.cs" />
     <Compile Include="Shell.xaml.cs">
@@ -95,6 +100,7 @@
     <Compile Include="ViewModel\ActivityInfoViewModel.cs" />
     <Compile Include="ViewModel\Common\BaseViewModel.cs" />
     <Compile Include="ViewModel\ProcessListViewModel.cs" />
+    <Compile Include="ViewModel\ProcessStartDialogViewModel.cs" />
     <Compile Include="ViewModel\ShellViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="App.xaml.cs">
@@ -103,6 +109,9 @@
     </Compile>
     <Compile Include="View\ActivityInfoView.xaml.cs">
       <DependentUpon>ActivityInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ProcessStartDialog.xaml.cs">
+      <DependentUpon>ProcessStartDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ProcessListView.xaml.cs">
       <DependentUpon>ProcessListView.xaml</DependentUpon>
@@ -152,6 +161,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ActivityInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ProcessStartDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
