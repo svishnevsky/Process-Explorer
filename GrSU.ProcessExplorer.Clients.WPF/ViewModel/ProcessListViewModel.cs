@@ -8,12 +8,13 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using GrSU.ProcessExplorer.Clients.WPF.ViewModel.Common;
+using GrSU.ProcessExplorer.Model;
 
 namespace GrSU.ProcessExplorer.Clients.WPF.ViewModel
 {
     public class ProcessListViewModel : BaseViewModel
     {
-        private readonly Dictionary<StartedProcessAction, Action<ProcessExplorer.Model.Process>> StartedProcessActionDict;
+        private readonly Dictionary<StartedProcessAction, Action<Process>> StartedProcessActionDict = new Dictionary<StartedProcessAction, Action<Process>>();
 
         private readonly IProcessManager processManager;
 

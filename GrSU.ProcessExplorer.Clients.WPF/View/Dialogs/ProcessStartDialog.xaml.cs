@@ -17,7 +17,7 @@ namespace GrSU.ProcessExplorer.Clients.WPF.View.Dialogs
     /// <summary>
     /// Interaction logic for ProcessStartDialog.xaml
     /// </summary>
-    public partial class ProcessStartDialog : Window
+    public partial class ProcessStartDialog : Elysium.Controls.Window
     {
         public ProcessStartDialog()
         {

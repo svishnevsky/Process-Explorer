@@ -1,8 +1,29 @@
-﻿<Window x:Class="GrSU.ProcessExplorer.Clients.WPF.View.Dialogs.ProcessStartDialog"
+﻿<metro:Window x:Class="GrSU.ProcessExplorer.Clients.WPF.View.Dialogs.ProcessStartDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="ProcessStartDialog" Height="300" Width="300">
-    <Grid>
-        
+        xmlns:metro="http://schemas.codeplex.com/elysium"
+        DataContext="{Binding Source={StaticResource Locator}, Path=ProcessStartDialog}"
+        ResizeMode="NoResize"
+        Title="New process started" Height="150" Width="400">
+    <metro:Window.TitleBar>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+        </Grid>
+    </metro:Window.TitleBar>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock TextAlignment="Left" TextWrapping="Wrap" FontSize="14">Process "asdasd" was started. Please choose action. (If you didn't start them click "Terminate")</TextBlock>
+
+        <StackPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Margin="5" Width="110" FontSize="14" Command="{Binding KeepRunning}">Keep running</Button>
+            <Button Margin="5" Width="110" FontSize="14" Command="{Binding Terminate}">Terminate</Button>
+        </StackPanel>
     </Grid>
-</Window>
+</metro:Window>

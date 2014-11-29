@@ -14,6 +14,8 @@ namespace GrSU.ProcessExplorer.Clients.WPF
     /// </summary>
     public partial class App : Application
     {
+        public DialogManager DialogManager { get; private set; }
+
         private void ApplicationDispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
             MessageBox.Show("Occurred an error");
@@ -27,6 +29,8 @@ namespace GrSU.ProcessExplorer.Clients.WPF
             this.Apply(Theme.Light, AccentBrushes.Blue, new SolidColorBrush(Colors.White));
             SimpleIoc.Default.Register<ProcessListView>();
             SimpleIoc.Default.Register<ActivityInfoView>();
+
+            this.DialogManager = new DialogManager();
         }
 
         protected override void OnExit(ExitEventArgs e)
