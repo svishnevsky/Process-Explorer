@@ -1,6 +1,4 @@
-﻿using GrSU.ProcessExplorer.Clients.WPF.Messages;
-using GrSU.ProcessExplorer.Clients.WPF.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,12 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace GrSU.ProcessExplorer.Clients.WPF.Dialogs
+namespace GrSU.ProcessExplorer.Clients.WPF.View.Dialogs
 {
     /// <summary>
     /// Interaction logic for ProcessStartDialog.xaml
     /// </summary>
-    public sealed partial class ProcessStartDialog : Elysium.Controls.Window
+    public partial class ProcessStartDialog : Window
     {
         public ProcessStartDialog()
         {

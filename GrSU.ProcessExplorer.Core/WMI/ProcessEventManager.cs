@@ -1,10 +1,5 @@
-﻿using GrSU.ProcessExplorer.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Management;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GrSU.ProcessExplorer.Core.WMI
 {
@@ -82,11 +77,13 @@ namespace GrSU.ProcessExplorer.Core.WMI
             }
 
 
-            if (this.stopProcessWatcher != null)
+            if (this.stopProcessWatcher == null)
             {
-                this.stopProcessWatcher.Stop();
-                this.stopProcessWatcher.Dispose();
+                return;
             }
+
+            this.stopProcessWatcher.Stop();
+            this.stopProcessWatcher.Dispose();
         }
     }
 }

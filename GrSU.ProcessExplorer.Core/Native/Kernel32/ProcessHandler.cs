@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GrSU.ProcessExplorer.Core.Native.Kernel32
 {
@@ -17,8 +14,10 @@ namespace GrSU.ProcessExplorer.Core.Native.Kernel32
             var procEntryList = new List<PROCESSENTRY32>();
             try
             {
-                var procEntry = new PROCESSENTRY32();
-                procEntry.dwSize = (UInt32)Marshal.SizeOf(typeof(PROCESSENTRY32));
+                var procEntry = new PROCESSENTRY32
+                {
+                    dwSize = (UInt32) Marshal.SizeOf(typeof (PROCESSENTRY32))
+                };
                 handleToSnapshot = Api.CreateToolhelp32Snapshot((uint)SnapshotFlags.Process, 0);
                 if (Api.Process32First(handleToSnapshot, ref procEntry))
                 {

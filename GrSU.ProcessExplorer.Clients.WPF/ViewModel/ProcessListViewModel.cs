@@ -1,5 +1,4 @@
-﻿using GalaSoft.MvvmLight;
-using GrSU.ProcessExplorer.Clients.WPF.Messages;
+﻿using GrSU.ProcessExplorer.Clients.WPF.Messages;
 using GrSU.ProcessExplorer.Clients.WPF.Mapping;
 using GrSU.ProcessExplorer.Clients.WPF.Model.ProcessList;
 using GrSU.ProcessExplorer.Interfaces;
@@ -8,11 +7,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
-using System.Windows;
-using GrSU.ProcessExplorer.Clients.WPF.Helpers;
 using GrSU.ProcessExplorer.Clients.WPF.ViewModel.Common;
 
 namespace GrSU.ProcessExplorer.Clients.WPF.ViewModel
@@ -21,7 +15,7 @@ namespace GrSU.ProcessExplorer.Clients.WPF.ViewModel
     {
         private readonly Dictionary<StartedProcessAction, Action<ProcessExplorer.Model.Process>> StartedProcessActionDict;
 
-        private IProcessManager processManager;
+        private readonly IProcessManager processManager;
 
         public ObservableCollection<ProcessListItem> ProcessList { get; set; }
 
@@ -77,17 +71,15 @@ namespace GrSU.ProcessExplorer.Clients.WPF.ViewModel
 
         private void ProcessStart(object sender, ProcessStartEventArgs e)
         {
-            base.Invoke(() =>
+            base.Invoke(() => base.MessengerInstance.Send(new ProcessStartMessage(e.Process, (process, action) =>
+            {
+                if (!this.StartedProcessActionDict.ContainsKey(action))
                 {
-                    base.MessengerInstance.Send(new ProcessStartMessage(e.Process, (process, action) => {
-                        if (!this.StartedProcessActionDict.ContainsKey(action))
-                        {
-                            return;
-                        }
+                    return;
+                }
 
-                        this.StartedProcessActionDict[action](process);
-                    }));
-                });
+                this.StartedProcessActionDict[action](process);
+            })));
         }
 
         private void AddProcess(ProcessExplorer.Model.Process process)
@@ -113,10 +105,7 @@ namespace GrSU.ProcessExplorer.Clients.WPF.ViewModel
                 return;
             }
 
-            base.Invoke(() =>
-                {
-                    this.ProcessList.Remove(processItem);
-                });
+            base.Invoke(() => this.ProcessList.Remove(processItem));
         }
     }
 }

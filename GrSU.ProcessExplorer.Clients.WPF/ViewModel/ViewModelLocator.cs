@@ -14,7 +14,7 @@
 
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
-using GrSU.ProcessExplorer.Clients.WPF.View;
+using GrSU.ProcessExplorer.Clients.WPF.ViewModel.Dialogs;
 using GrSU.ProcessExplorer.Core;
 using GrSU.ProcessExplorer.Interfaces;
 using Microsoft.Practices.ServiceLocation;

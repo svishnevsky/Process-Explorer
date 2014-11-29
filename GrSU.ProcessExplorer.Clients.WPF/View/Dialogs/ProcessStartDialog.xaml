@@ -1,0 +1,8 @@
+﻿<Window x:Class="GrSU.ProcessExplorer.Clients.WPF.View.Dialogs.ProcessStartDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ProcessStartDialog" Height="300" Width="300">
+    <Grid>
+        
+    </Grid>
+</Window>

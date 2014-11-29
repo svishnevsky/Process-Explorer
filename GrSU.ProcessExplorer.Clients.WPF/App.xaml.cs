@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using Elysium;
 using System.Windows.Media;
 using GalaSoft.MvvmLight.Ioc;
 using GrSU.ProcessExplorer.Clients.WPF.View;
 using GalaSoft.MvvmLight.Messaging;
 using GrSU.ProcessExplorer.Clients.WPF.Messages;
-using System.Management;
 using GalaSoft.MvvmLight.Threading;
 
 namespace GrSU.ProcessExplorer.Clients.WPF
@@ -23,7 +16,7 @@ namespace GrSU.ProcessExplorer.Clients.WPF
     {
         private void ApplicationDispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
-            MessageBox.Show("Occured an error");
+            MessageBox.Show("Occurred an error");
             e.Handled = true;
             //TODO: Log error
         }

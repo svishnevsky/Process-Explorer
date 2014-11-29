@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GalaSoft.MvvmLight.Messaging;
 
 namespace GrSU.ProcessExplorer.Clients.WPF.Messages
 {
-    public class StartWorkMessage
+    public class StartWorkMessage : MessageBase
     {
     }
 }

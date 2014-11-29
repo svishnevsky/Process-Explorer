@@ -1,11 +1,5 @@
 ﻿using GrSU.ProcessExplorer.Clients.WPF.Model.ProcessList;
-using GrSU.ProcessExplorer.Core.Native.Kernel32;
 using GrSU.ProcessExplorer.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GrSU.ProcessExplorer.Clients.WPF.Mapping
 {

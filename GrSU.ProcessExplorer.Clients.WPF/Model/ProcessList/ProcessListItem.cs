@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GrSU.ProcessExplorer.Clients.WPF.Model.ProcessList
+﻿namespace GrSU.ProcessExplorer.Clients.WPF.Model.ProcessList
 {
     public class ProcessListItem
     {

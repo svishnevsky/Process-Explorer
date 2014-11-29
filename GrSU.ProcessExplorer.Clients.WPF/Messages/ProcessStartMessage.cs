@@ -1,13 +1,10 @@
-﻿using GrSU.ProcessExplorer.Model;
+﻿using GalaSoft.MvvmLight.Messaging;
+using GrSU.ProcessExplorer.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GrSU.ProcessExplorer.Clients.WPF.Messages
 {
-    public class ProcessStartMessage
+    public class ProcessStartMessage : MessageBase
     {
         public Process Process { get; private set; }
 
