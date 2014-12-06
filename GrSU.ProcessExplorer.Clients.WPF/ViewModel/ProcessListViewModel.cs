@@ -72,6 +72,11 @@ namespace GrSU.ProcessExplorer.Clients.WPF.ViewModel
 
         private void ProcessStart(object sender, ProcessStartEventArgs e)
         {
+            if (e == null || e.Process == null)
+            {
+                return;
+            }
+
             base.Invoke(() => base.MessengerInstance.Send(new ProcessStartMessage(e.Process, (process, action) =>
             {
                 if (!this.StartedProcessActionDict.ContainsKey(action))

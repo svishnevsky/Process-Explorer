@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using GrSU.ProcessExplorer.Clients.WPF.Messages;
+using GrSU.ProcessExplorer.Model;
 
 namespace GrSU.ProcessExplorer.Clients.WPF.View.Dialogs
 {
@@ -22,6 +25,12 @@ namespace GrSU.ProcessExplorer.Clients.WPF.View.Dialogs
         public ProcessStartDialog()
         {
             InitializeComponent();
+        }
+
+        public StartedProcessAction ShowDialog(Process process)
+        {
+            var dialogResult = this.ShowDialog();
+            return StartedProcessAction.Kill;
         }
     }
 }
