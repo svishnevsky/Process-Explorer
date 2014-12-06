@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:metro="http://schemas.codeplex.com/elysium"
-        Title="Process Explorer" Height="auto" Width="auto"
+        Title="Process Explorer" Height="auto" Width="450"
         DataContext="{Binding Source={StaticResource Locator}, Path=Shell}">
     <metro:Window.TitleBar>
         <Grid>
@@ -19,7 +19,6 @@
             <RowDefinition Height="10" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <ContentControl x:Name="ProcessListArea"

@@ -22,15 +22,24 @@ namespace GrSU.ProcessExplorer.Clients.WPF.View.Dialogs
     /// </summary>
     public partial class ProcessStartDialog : Elysium.Controls.Window
     {
+        private bool isButtonPressed = false;
         public ProcessStartDialog()
         {
             InitializeComponent();
         }
 
-        public StartedProcessAction ShowDialog(Process process)
+        private void WindowClosing(object sender, CancelEventArgs e)
         {
-            var dialogResult = this.ShowDialog();
-            return StartedProcessAction.Kill;
+            if (!this.isButtonPressed)
+            {
+                this.BtnKeepRunning.Command.Execute(null);
+            }
+        }
+
+        private void Btn_Click(object sender, RoutedEventArgs e)
+        {
+            this.isButtonPressed = true;
+            this.Close();
         }
     }
 }

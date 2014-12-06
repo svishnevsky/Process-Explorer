@@ -15,7 +15,6 @@
                   HorizontalContentAlignment="Stretch"
                   IsSynchronizedWithCurrentItem="True"
                   ItemsSource="{Binding Path=ProcessList}">
-
             <ListView.View>
                 <GridView AllowsColumnReorder="True">
                     <GridViewColumn Header="Id" Width="100">

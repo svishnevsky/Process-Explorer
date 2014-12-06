@@ -19,11 +19,11 @@
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock TextAlignment="Left" TextWrapping="Wrap" FontSize="14">Process "asdasd" was started. Please choose action. (If you didn't start them click "Terminate")</TextBlock>
+        <TextBlock TextAlignment="Left" TextWrapping="Wrap" FontSize="14">Process "<TextBlock Text="{Binding Process.Name}"></TextBlock>" was started. Please choose action. (If you didn't start them click "Terminate")</TextBlock>
 
         <StackPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button Margin="5" Width="110" FontSize="14" IsDefault="False" Command="{Binding KeepRunning}">Keep running</Button>
-            <Button Margin="5" Width="110" FontSize="14" IsCancel="True" Command="{Binding Terminate}">Terminate</Button>
+            <Button Name="BtnKeepRunning" Margin="5" Width="110" FontSize="12" Click="Btn_Click" IsDefault="True" Command="{Binding KeepRunning}">Keep running</Button>
+            <Button Margin="5" Width="110" FontSize="12" Click="Btn_Click" IsCancel="True" Command="{Binding Terminate}">Terminate</Button>
         </StackPanel>
     </Grid>
 </metro:Window>
