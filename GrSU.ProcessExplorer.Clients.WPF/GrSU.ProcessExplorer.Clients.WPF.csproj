@@ -85,6 +85,7 @@
     </ApplicationDefinition>
     <Compile Include="Converters\LastColumnWidthConverter.cs" />
     <Compile Include="DialogManager.cs" />
+    <Compile Include="Helpers\RegistryHelpers.cs" />
     <Compile Include="Mapping\MappingExtensions.cs" />
     <Compile Include="Messages\CompleteWorkMessage.cs" />
     <Compile Include="Messages\LoadProcessListMessage.cs" />

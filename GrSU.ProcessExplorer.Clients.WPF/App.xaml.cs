@@ -6,6 +6,9 @@ using GrSU.ProcessExplorer.Clients.WPF.View;
 using GalaSoft.MvvmLight.Messaging;
 using GrSU.ProcessExplorer.Clients.WPF.Messages;
 using GalaSoft.MvvmLight.Threading;
+using GrSU.ProcessExplorer.Clients.WPF.Helpers;
+using System.Reflection;
+using GrSU.ProcessExplorer.Clients.WPF.Properties;
 
 namespace GrSU.ProcessExplorer.Clients.WPF
 {
@@ -25,6 +28,7 @@ namespace GrSU.ProcessExplorer.Clients.WPF
 
         private void StartupHandler(object sender, StartupEventArgs e)
         {
+            RegistryHelpers.AddToAutorun(Settings.Default.AppName, Assembly.GetExecutingAssembly().Location);
             DispatcherHelper.Initialize();
             this.Apply(Theme.Light, AccentBrushes.Blue, new SolidColorBrush(Colors.White));
             SimpleIoc.Default.Register<ProcessListView>();
