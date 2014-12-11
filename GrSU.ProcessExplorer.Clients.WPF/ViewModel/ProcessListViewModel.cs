@@ -9,6 +9,8 @@ using System.ComponentModel;
 using System.Linq;
 using GrSU.ProcessExplorer.Clients.WPF.ViewModel.Common;
 using GrSU.ProcessExplorer.Model;
+using GalaSoft.MvvmLight.Command;
+using System.Windows.Input;
 
 namespace GrSU.ProcessExplorer.Clients.WPF.ViewModel
 {
@@ -20,6 +22,8 @@ namespace GrSU.ProcessExplorer.Clients.WPF.ViewModel
 
         public ObservableCollection<ProcessListItem> ProcessList { get; set; }
 
+        public ICommand Kill { get; private set; }
+
         public ProcessListViewModel(IProcessManager processManager)
         {
             this.processManager = processManager;
@@ -29,6 +33,8 @@ namespace GrSU.ProcessExplorer.Clients.WPF.ViewModel
 
             this.StartedProcessActionDict.Add(StartedProcessAction.KeepExecute, this.AddProcess);
             this.StartedProcessActionDict.Add(StartedProcessAction.Kill, this.KillProcess);
+
+            this.Kill = new RelayCommand<ProcessListItem>(this.KillProcess);
         }
 
         private void OnProgramClosing(ProgramClosingMessage msg)
@@ -94,6 +100,11 @@ namespace GrSU.ProcessExplorer.Clients.WPF.ViewModel
         }
 
         private void KillProcess(ProcessExplorer.Model.Process process)
+        {
+            this.processManager.KillProcess(process.Id);
+        }
+
+        private void KillProcess(ProcessListItem process)
         {
             this.processManager.KillProcess(process.Id);
         }

@@ -35,6 +35,11 @@
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Kill" Command="{Binding Path=Kill}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent.PlacementTarget.SelectedValue }" />
+                </ContextMenu>
+            </ListView.ContextMenu>
         </ListView>
     </Grid>
 </UserControl>
