@@ -14,7 +14,7 @@
 
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
-using GrSU.ProcessExplorer.Clients.WPF.View;
+using GrSU.ProcessExplorer.Clients.WPF.ViewModel.Dialogs;
 using GrSU.ProcessExplorer.Core;
 using GrSU.ProcessExplorer.Interfaces;
 using Microsoft.Practices.ServiceLocation;
@@ -48,6 +48,7 @@ namespace GrSU.ProcessExplorer.Clients.WPF.ViewModel
             SimpleIoc.Default.Register<ShellViewModel>();
             SimpleIoc.Default.Register<ProcessListViewModel>();
             SimpleIoc.Default.Register<ActivityInfoViewModel>();
+            SimpleIoc.Default.Register<ProcessStartDialogViewModel>();
         }
 
         public ShellViewModel Shell
@@ -71,6 +72,14 @@ namespace GrSU.ProcessExplorer.Clients.WPF.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<ActivityInfoViewModel>();
+            }
+        }
+
+        public ProcessStartDialogViewModel ProcessStartDialog
+        {
+            get 
+            { 
+                return ServiceLocator.Current.GetInstance<ProcessStartDialogViewModel>(); 
             }
         }
 

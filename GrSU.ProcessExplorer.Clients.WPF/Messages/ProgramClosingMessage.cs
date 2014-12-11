@@ -2,7 +2,7 @@
 
 namespace GrSU.ProcessExplorer.Clients.WPF.Messages
 {
-    public class StartWorkMessage : MessageBase
+    public class ProgramClosingMessage : MessageBase
     {
     }
 }

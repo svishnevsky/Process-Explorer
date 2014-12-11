@@ -1,20 +1,23 @@
 ﻿using System;
 using System.Text;
 using System.Collections.Generic;
-using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using GrSU.ProcessExplorer.Core.Native.Kernel32;
+using GrSU.ProcessExplorer.Core.WMI;
+using System.Threading;
 
-namespace GrSU.ProcessExplorer.Core.Test.Native.Kernel32
+namespace GrSU.ProcessExplorer.Core.Test.WMI
 {
     /// <summary>
-    /// Summary description for ProcessHandlerTests
+    /// Summary description for ProcessEventManagerTests
     /// </summary>
     [TestClass]
-    public class ProcessHandlerTests
+    public class ProcessEventManagerTests
     {
-        public ProcessHandlerTests()
+        public ProcessEventManagerTests()
         {
+            //
+            // TODO: Add constructor logic here
+            //
         }
 
         private TestContext testContextInstance;
@@ -58,26 +61,10 @@ namespace GrSU.ProcessExplorer.Core.Test.Native.Kernel32
         #endregion
 
         [TestMethod]
-        public void GetProcessesSmoke()
+        public void SmokeTest()
         {
-            var processHandler = new ProcessHandler();
-            var processList = processHandler.GetProcesses();
-            Assert.IsTrue(processList.Count > 0);
-        }
-
-        [TestMethod]
-        public void TerminateProcess()
-        {
-            var processHandler = new ProcessHandler();
-            var processList = processHandler.GetProcesses();
-            Assert.IsTrue(processList.Count > 0);
-            if (!processList.Any(item => item.szExeFile.Contains("notepad")))
-            {
-                return;
-            }
-            
-            var nodepadProcess = processList.FirstOrDefault(item => item.szExeFile.Contains("notepad"));
-            processHandler.KillProcess(nodepadProcess.th32ProcessID);
+            var eventManager = new ProcessEventManager();
+            Thread.Sleep(100000);
         }
     }
 }

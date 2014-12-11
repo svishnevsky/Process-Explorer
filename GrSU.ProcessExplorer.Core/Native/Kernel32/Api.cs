@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 
 namespace GrSU.ProcessExplorer.Core.Native.Kernel32
@@ -21,5 +17,12 @@ namespace GrSU.ProcessExplorer.Core.Native.Kernel32
         [DllImport("kernel32", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool CloseHandle([In] IntPtr hObject);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        public static extern IntPtr OpenProcess(uint dwDesiredAccess, bool bInheritHandle, int dwProcessId);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool TerminateProcess(IntPtr hProcess, uint uExitCode);
     }
 }

@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using Elysium;
 using System.Windows.Media;
 using GalaSoft.MvvmLight.Ioc;
 using GrSU.ProcessExplorer.Clients.WPF.View;
 using GalaSoft.MvvmLight.Messaging;
 using GrSU.ProcessExplorer.Clients.WPF.Messages;
-using System.Management;
+using GalaSoft.MvvmLight.Threading;
 
 namespace GrSU.ProcessExplorer.Clients.WPF
 {
@@ -20,18 +14,29 @@ namespace GrSU.ProcessExplorer.Clients.WPF
     /// </summary>
     public partial class App : Application
     {
+        public DialogManager DialogManager { get; private set; }
+
         private void ApplicationDispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
-            MessageBox.Show("Occured an error");
+            MessageBox.Show("Occurred an error");
             e.Handled = true;
             //TODO: Log error
         }
 
         private void StartupHandler(object sender, StartupEventArgs e)
         {
+            DispatcherHelper.Initialize();
             this.Apply(Theme.Light, AccentBrushes.Blue, new SolidColorBrush(Colors.White));
             SimpleIoc.Default.Register<ProcessListView>();
             SimpleIoc.Default.Register<ActivityInfoView>();
+
+            this.DialogManager = new DialogManager();
+        }
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            Messenger.Default.Send(new ProgramClosingMessage());
+            base.OnExit(e);
         }
     }
 }

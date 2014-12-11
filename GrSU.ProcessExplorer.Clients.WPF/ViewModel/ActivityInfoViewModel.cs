@@ -1,16 +1,11 @@
 ﻿using GalaSoft.MvvmLight;
 using GrSU.ProcessExplorer.Clients.WPF.Messages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GrSU.ProcessExplorer.Clients.WPF.ViewModel
 {
     public class ActivityInfoViewModel : ViewModelBase
     {
-        private int activityCount = 0;
+        private int activityCount;
         
         public int ActivityCount
         {
@@ -33,10 +28,10 @@ namespace GrSU.ProcessExplorer.Clients.WPF.ViewModel
         public ActivityInfoViewModel()
         {
             MessengerInstance.Register<StartWorkMessage>(this, OnStartActivity);
-            MessengerInstance.Register<CompleteWorkMessage>(this, OnCompleteActivvity);
+            MessengerInstance.Register<CompleteWorkMessage>(this, OnCompleteActivity);
         }
 
-        private void OnCompleteActivvity(CompleteWorkMessage obj)
+        private void OnCompleteActivity(CompleteWorkMessage obj)
         {
             this.ActivityCount--;
         }
