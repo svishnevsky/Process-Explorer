@@ -32,6 +32,7 @@ namespace GrSU.ProcessExplorer.Clients.WPF
             DispatcherHelper.Initialize();
             this.Apply(Theme.Light, AccentBrushes.Blue, new SolidColorBrush(Colors.White));
             SimpleIoc.Default.Register<ProcessListView>();
+            SimpleIoc.Default.Register<TrustedProcessListView>();
             SimpleIoc.Default.Register<ActivityInfoView>();
 
             this.DialogManager = new DialogManager();

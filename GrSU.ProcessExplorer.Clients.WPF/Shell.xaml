@@ -12,7 +12,6 @@
             </Grid.ColumnDefinitions>
         </Grid>
     </metro:Window.TitleBar>
-    
     <Grid x:Name="MainShell">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -21,12 +20,19 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <ContentControl x:Name="ProcessListArea"
+
+        <TabControl
                   Grid.Row="0"
-                  Grid.Column="0" />
+                  Grid.Column="0">
+            <TabItem Header="Running processes">
+                <ContentControl x:Name="ProcessListArea" />
+            </TabItem>
+            <TabItem Header="Trusted processes">
+                <ContentControl x:Name="TrustedProcessListArea" />
+            </TabItem>
+        </TabControl>
         <ContentControl x:Name="ActivityInfoArea"
                   Grid.Row="1"
-                  Grid.Column="0"
-                  Grid.ColumnSpan="2" />
+                  Grid.Column="0"/>
     </Grid>
 </metro:Window>

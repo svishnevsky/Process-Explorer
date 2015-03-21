@@ -83,7 +83,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Converters\LastColumnWidthConverter.cs" />
+    <Compile Include="Converters\ColStretchWidthConverter.cs" />
     <Compile Include="DialogManager.cs" />
     <Compile Include="Helpers\RegistryHelpers.cs" />
     <Compile Include="Mapping\MappingExtensions.cs" />
@@ -112,6 +112,9 @@
     </Compile>
     <Compile Include="View\Dialogs\ProcessStartDialog.xaml.cs">
       <DependentUpon>ProcessStartDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TrustedProcessListView.xaml.cs">
+      <DependentUpon>TrustedProcessListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ProcessListView.xaml.cs">
       <DependentUpon>ProcessListView.xaml</DependentUpon>
@@ -167,6 +170,10 @@
     <Page Include="View\Dialogs\ProcessStartDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TrustedProcessListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\ProcessListView.xaml">
       <SubType>Designer</SubType>

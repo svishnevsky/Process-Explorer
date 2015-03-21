@@ -14,6 +14,7 @@ namespace GrSU.ProcessExplorer.Clients.WPF
         {
             InitializeComponent();
             this.ProcessListArea.Content = SimpleIoc.Default.GetInstance<ProcessListView>();
+            this.TrustedProcessListArea.Content = SimpleIoc.Default.GetInstance<TrustedProcessListView>();
             this.ActivityInfoArea.Content = SimpleIoc.Default.GetInstance<ActivityInfoView>();
 
             Messenger.Default.Send(new LoadProcessListMessage());

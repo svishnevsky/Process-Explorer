@@ -6,7 +6,7 @@ using System.Windows.Data;
 
 namespace GrSU.ProcessExplorer.Clients.WPF.Converters
 {
-    public class LastColumnWidthConverter : IValueConverter
+    public class ColStretchWidthConverter : IValueConverter
     {
         public object Convert(object sender, Type type, object parameter, CultureInfo culture)
         {
